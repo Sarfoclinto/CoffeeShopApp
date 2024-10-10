@@ -2,6 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useContext, useState } from "react";
 import { Link, useLocalSearchParams } from "expo-router";
 import { Coffees } from "./Context/CoffeeContext";
+import bigCoffee1 from "./images/bigCoffee1.png";
 import star from "./images/star.png";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -40,7 +41,9 @@ const Details = () => {
   return (
     <View className="relative border h-full">
       <View className="main px-6 pt-2 flex flex-col gap-y-2">
-        <View className="border h-[226px] rounded-xl"></View>
+        <View className=" h-[226px] rounded-xl flex flex-row justify-center">
+          <Image source={bigCoffee1} />
+        </View>
         <View className="texts">
           <Text className="text-xl font-semibold">{detailedCoffee.type}</Text>
           <Text className="text-stone-500">with {detailedCoffee.plus}</Text>
