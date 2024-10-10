@@ -5,19 +5,16 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  FlatList,
+  StyleSheet,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import profile from "../images/Image.png";
 import CoffeeTypeBtn from "../component/CoffeeTypeBtn";
+import CoffeeCard from "../component/CoffeeCard";
+import CoffeeContext, { Coffees } from "../Context/CoffeeContext";
 
-interface CoffeeProp {
-  id: number;
-  type: string;
-  with: string;
-  price: number;
-  rate: number;
-}
 const Explore = () => {
   const [coffeeTypes, setCoffeeType] = useState([
     {
@@ -42,36 +39,8 @@ const Explore = () => {
     },
   ]);
 
-  const [coffee, setCoffee] = useState<CoffeeProp[]>([
-    {
-      id: 1,
-      type: "Cappucino",
-      with: "Chocolate",
-      price: 4.53,
-      rate: 4.8,
-    },
-    {
-      id: 2,
-      type: "Cappucino",
-      with: "Oat Milk",
-      price: 3.9,
-      rate: 4.9,
-    },
-    {
-      id: 3,
-      type: "Cappucino",
-      with: "Something",
-      price: 8.75,
-      rate: 5.0,
-    },
-    {
-      id: 4,
-      type: "Cappucino",
-      with: "Powder",
-      price: 4.56,
-      rate: 4.7,
-    },
-  ]);
+  const { coffee, setCoffee } = useContext(Coffees);
+  console.log(coffee);
 
   const changeCoffeeType = (index: number) => {
     setCoffeeType((prev) => {
@@ -83,7 +52,7 @@ const Explore = () => {
     });
   };
   return (
-    <View className="main h-full">
+    <View className="main h-full bg-[#f9f9f9]">
       {/* top section starts here */}
       <View className="h-2/5 flex flex-col bg-[#1f1f1f] p-6">
         <View className="first flex flex-row justify-between ">
@@ -133,12 +102,35 @@ const Explore = () => {
             />
           ))}
         </ScrollView>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          className="border mt-8 mr-6 grid grid-cols-2 gap-x-2"
-        >
-          <Text>hello</Text>
-        </ScrollView>
+
+        <View className=" mt-6 mr-6 flex justify-center">
+          <View className="h-[307px] pb-2 flex flex-col justify-between">
+            <FlatList
+              className=" ml-2"
+              data={coffee}
+              numColumns={2}
+              showsVerticalScrollIndicator={false}
+              keyExtractor={(coffee) => coffee.id.toString()}
+              renderItem={({ item }) => (
+                <CoffeeCard
+                  image={item.image}
+                  key={item.id}
+                  plus={item.plus}
+                  price={item.price}
+                  rate={item.rate}
+                  type={item.type}
+                  id={item.id}
+                  coffee={coffee}
+                />
+              )}
+              contentContainerStyle={{
+                display: "flex",
+                width: 350,
+                justifyContent: "space-between",
+              }}
+            />
+          </View>
+        </View>
       </View>
       {/* bottom section ends here */}
     </View>
@@ -146,3 +138,5 @@ const Explore = () => {
 };
 
 export default Explore;
+
+const styles = StyleSheet.create({});

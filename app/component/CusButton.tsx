@@ -8,13 +8,13 @@ interface Prop {
 }
 const CusButton = ({ title }: Prop) => {
   return (
-    <TouchableOpacity className="bg-orange-400 px-20 py-4 mt-5 rounded-xl">
-      <Link href="/(tabs)/explore">
-        <View className="w-full h-full">
+    <Link href="/(tabs)/explore" asChild>
+      <TouchableOpacity className="bg-orange-400 px-20 py-4 mt-5 rounded-xl">
+        <View className="w-full">
           <Text className="text-white font-medium text-lg">{title}</Text>
         </View>
-      </Link>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </Link>
   );
 };
 

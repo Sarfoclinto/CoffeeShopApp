@@ -16,7 +16,7 @@ const CoffeeTypeBtn = ({ type, active, index, changeCoffeeType }: Prop) => {
           changeCoffeeType(index);
         }}
         className={` ${
-          active ? "bg-[#c67c4e] " : "bg-white"
+          active ? "bg-[#c67c4e]" : "bg-white"
         } p-3 rounded-xl h-fit`}
       >
         <Text
