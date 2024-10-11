@@ -24,7 +24,14 @@ export default function RootLayout() {
           }}
         />
         <Stack.Screen name="order" options={{ headerShown: true }} />
-        <Stack.Screen name="map" options={{ headerShown: true }} />
+        <Stack.Screen
+          name="map"
+          options={() => ({
+            headerShown: true,
+            headerTitleAlign: "center",
+            headerTitle: "Map",
+          })}
+        />
         <Stack.Screen
           name="(tabs)"
           options={{ contentStyle: { paddingTop: 50 } }}

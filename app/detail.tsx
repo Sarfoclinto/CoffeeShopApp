@@ -10,8 +10,6 @@ const Details = () => {
   const { coffee } = useContext(Coffees);
   const { id } = useLocalSearchParams();
   const detailedCoffee = coffee.find((item) => item.id.toString() === id);
-  console.log(detailedCoffee.image);
-  console.log(coffee);
 
   const [sizes, setSizes] = useState([
     {

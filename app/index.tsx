@@ -25,7 +25,9 @@ const Index = () => {
       <Text className="text-gray-400 text-lg font-medium text-center">
         the powerful flavour
       </Text>
-      <View><CusButton title="Get started" /></View>
+      <View>
+        <CusButton title="Get started" />
+      </View>
     </View>
   );
 };

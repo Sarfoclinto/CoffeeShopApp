@@ -40,7 +40,6 @@ const Explore = () => {
   ]);
 
   const { coffee, setCoffee } = useContext(Coffees);
-  console.log(coffee);
 
   const changeCoffeeType = (index: number) => {
     setCoffeeType((prev) => {
