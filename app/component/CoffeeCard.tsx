@@ -23,7 +23,7 @@ type Prop = {
 };
 const CoffeeCard = ({ image, price, plus, rate, type, id, coffee }: Prop) => {
   return (
-    <View className="bg-white mr-5 pb-3 px-3 pt-1 mb-5 rounded-lg relative ">
+    <View className="bg-white mr-3 pb-3 px-3 pt-1 mb-5 rounded-lg relative ">
       <View className="absolute top-2 left-5 z-50 flex flex-row items-center">
         <Image source={star} />
         <Text className="text-white font-medium">{rate}</Text>

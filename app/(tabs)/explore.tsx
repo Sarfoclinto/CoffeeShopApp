@@ -84,7 +84,7 @@ const Explore = () => {
       </View>
       {/* top section ends here */}
       {/* bottom section starts here */}
-      <View className="mt-20 pl-6">
+      <View className="mt-10 pl-6 ">
         <ScrollView
           showsHorizontalScrollIndicator={false}
           horizontal={true}
@@ -105,7 +105,7 @@ const Explore = () => {
         <View className=" mt-6 mr-6 flex justify-center">
           <View className="h-[307px] pb-2 flex flex-col justify-between">
             <FlatList
-              className=" ml-2"
+              className="-ml-5"
               data={coffee}
               numColumns={2}
               showsVerticalScrollIndicator={false}
@@ -137,5 +137,3 @@ const Explore = () => {
 };
 
 export default Explore;
-
-const styles = StyleSheet.create({});
